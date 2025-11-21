@@ -1,6 +1,6 @@
 # [Exercism](https://exercism.org) 
 
-**Exercism**is a free and open-source platform that helps developers improve their coding skills through hands-on practice, automated testing, and optional mentorship. It supports more than **60 programming languages**, including Python, JavaScript, Go, Rust, C#, and many others.
+**Exercism** is a free and open-source platform that helps developers improve their coding skills through hands-on practice, automated testing, and optional mentorship. It supports more than **60 programming languages**, including Python, JavaScript, Go, Rust, C#, and many others.
 
 Unlike competitive coding platforms, Exercism focuses on **writing clean, maintainable, and idiomatic code**, while also offering mentorship from experienced developers to help you grow.
 
