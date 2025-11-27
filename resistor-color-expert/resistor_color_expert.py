@@ -57,7 +57,7 @@ def resistor_label(colors: list[str]) -> str:
     _validate_color_bands(colors)
 
     if len(colors) == 1:
-        return f"0 {UNITS[1]}"
+        return f"0 {UNITS[1]}".strip()
 
     digits: list[int] = [RESISTOR_RESISTANCE[color] for color in colors[:-2]]
     multiplier: int = 10 ** RESISTOR_RESISTANCE[colors[-2]]
