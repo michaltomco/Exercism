@@ -24,7 +24,7 @@ def answer(question: str) -> int:
     for word in question.split():
         if word in OPERATORS and expected_number:
             raise ValueError(SYNTAX_ERROR_MSG)
-        elif expected_number & _is_number(woexercism rd):
+        elif expected_number & _is_number(word):
             equation = "".join([equation, word])
             expected_number = False
             expected_operator = True
