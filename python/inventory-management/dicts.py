@@ -1,17 +1,19 @@
 """Functions to keep track and alter inventory."""
 
+from collections import Counter
 
-def create_inventory(items):
+
+def create_inventory(items: list[str]) -> dict[str, int]:
     """Create a dict that tracks the amount (count) of each element on the `items` list.
 
     :param items: list - list of items to create an inventory from.
     :return: dict - the inventory dictionary.
     """
 
-    pass
+    return dict(Counter(items))
 
 
-def add_items(inventory, items):
+def add_items(inventory: dict[str, int], items: list[str]) -> dict[str, int]:
     """Add or increment items in inventory using elements from the items `list`.
 
     :param inventory: dict - dictionary of existing inventory.
@@ -19,10 +21,12 @@ def add_items(inventory, items):
     :return: dict - the inventory updated with the new items.
     """
 
-    pass
+    for item in items:
+        inventory[item] = inventory.get(item, 0) + 1
+    return inventory
 
 
-def decrement_items(inventory, items):
+def decrement_items(inventory: dict[str, int], items: list[str]) -> dict[str, int]:
     """Decrement items in inventory using elements from the `items` list.
 
     :param inventory: dict - inventory dictionary.
@@ -30,10 +34,13 @@ def decrement_items(inventory, items):
     :return: dict - updated inventory with items decremented.
     """
 
-    pass
+    for item in items:
+        if item in inventory:
+            inventory[item] = max(0, inventory[item] - 1)
+    return inventory
 
 
-def remove_item(inventory, item):
+def remove_item(inventory: dict[str, int], item: str) -> dict[str, int]:
     """Remove item from inventory if it matches `item` string.
 
     :param inventory: dict - inventory dictionary.
@@ -41,15 +48,15 @@ def remove_item(inventory, item):
     :return: dict - updated inventory with item removed. Current inventory if item does not match.
     """
 
-    pass
+    inventory.pop(item, None)
+    return inventory
 
 
-def list_inventory(inventory):
+def list_inventory(inventory: dict[str, int]) -> list[tuple[str, int]]:
     """Create a list containing only available (item_name, item_count > 0) pairs in inventory.
 
     :param inventory: dict - an inventory dictionary.
     :return: list of tuples - list of key, value pairs from the inventory dictionary.
     """
-
-    pass
-
+    
+    return [(name, count) for name, count in inventory.items() if count > 0]
